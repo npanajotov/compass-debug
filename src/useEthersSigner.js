@@ -23,7 +23,7 @@ export function useEthersSigner({chainId} = {}) {
     const connectorClient = useConnectorClient();
 
     if (connectorClient.failureCount > 0) {
-        console.log('failureReason', connectorClient.failureReason)
+        console.error('failureReason', connectorClient.failureReason)
     }
     return useMemo(() => (client ? clientToSigner(client) : undefined), [client]);
 }
